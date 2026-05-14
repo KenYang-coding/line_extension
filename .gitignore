@@ -1,4 +1,2 @@
 node_modules/
-chrome/side_panel/
-chrome/content-scripts/
 *.zip
