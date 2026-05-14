@@ -1,0 +1,39 @@
+{
+  "name": "altabots-line-oa-extension",
+  "version": "1.0.0",
+  "description": "AltaBots LINE OA Chrome Extension - Human Takeover Assistant",
+  "private": true,
+  "scripts": {
+    "dev": "rsbuild dev",
+    "build:dev": "rsbuild build --env-mode development && rsbuild build --config rsbuild.content.config.ts",
+    "build:prod": "rsbuild build --env-mode production && rsbuild build --config rsbuild.content.config.ts",
+    "zip:chrome": "date1=$(date +%Y%m%d%H%M%S) && zip -r ./altabots-assistant-chrome-prod-$date1.zip ./chrome",
+    "lint": "eslint src --ext .ts,.vue",
+    "format": "prettier --write src"
+  },
+  "dependencies": {
+    "@ant-design/icons-vue": "^7.0.1",
+    "@microsoft/fetch-event-source": "^2.0.1",
+    "ant-design-vue": "^3.2.20",
+    "axios": "^1.7.9",
+    "crypto-js": "^4.2.0",
+    "dayjs": "^1.11.13",
+    "vue": "^3.5.13",
+    "vue-i18n": "^9.14.3"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "^1.3.9",
+    "@rsbuild/plugin-less": "^1.2.4",
+    "@rsbuild/plugin-vue": "^1.1.0",
+    "@types/chrome": "^0.0.307",
+    "@types/crypto-js": "^4.2.2",
+    "@types/node": "^22.13.5",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "@vue/eslint-config-typescript": "^14.3.0",
+    "eslint": "^9.21.0",
+    "less": "^4.2.2",
+    "prettier": "^3.5.2",
+    "typescript": "^5.8.2"
+  }
+}

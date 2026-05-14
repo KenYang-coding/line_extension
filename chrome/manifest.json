@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "AltaBots Assistant",
+  "version": "1.0.0",
+  "description": "AltaBots LINE OA Human Takeover Assistant",
+  "icons": {
+    "16": "imgs/logo.png",
+    "48": "imgs/logo.png",
+    "128": "imgs/logo.png"
+  },
+  "permissions": [
+    "sidePanel",
+    "contextMenus",
+    "scripting",
+    "tabs",
+    "activeTab",
+    "notifications",
+    "webRequest",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "AltaBots Assistant",
+    "default_icon": {
+      "16": "imgs/logo.png",
+      "48": "imgs/logo.png",
+      "128": "imgs/logo.png"
+    }
+  },
+  "side_panel": {
+    "default_path": "side_panel/index.html",
+    "default_width": 490
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.line.biz/*"
+      ],
+      "js": [
+        "content-scripts/line/index.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
