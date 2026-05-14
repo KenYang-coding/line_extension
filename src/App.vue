@@ -22,7 +22,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AssistantPage from '@/components/assistant/index.vue'
 import SettingsPage from '@/components/settings/index.vue'
-import { useGlobalData } from '@/hooks/use-global-data'
+import { globalState, useGlobalData } from '@/hooks/use-global-data'
 
 const { t, locale } = useI18n()
 const { loadConfig, initMessageListener } = useGlobalData()
@@ -37,8 +37,6 @@ const tabs = computed(() => [
 onMounted(async () => {
   await loadConfig()
   initMessageListener()
-  // sync locale from global state after loadConfig
-  const { globalState } = await import('@/hooks/use-global-data')
   if (globalState.locale) locale.value = globalState.locale
 })
 </script>
@@ -58,8 +56,8 @@ body {
 }
 
 .app-container {
-  width: 360px;
-  height: 600px;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
